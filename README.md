@@ -35,7 +35,7 @@ contents = await response.Content.ReadAsStringAsync();
 #### Get and store cookie:
 ```C#
 string cookie_to_use = "";
-Uri uri = new Uri("https://klik035282001.e-kreta.hu/");
+Uri uri = new Uri("https://klikXXXXXXXXX.e-kreta.hu/");
 IEnumerable<Cookie> responseCookies = cookies.GetCookies(uri).Cast<Cookie>();
 foreach (Cookie cookie in responseCookies)
 {
