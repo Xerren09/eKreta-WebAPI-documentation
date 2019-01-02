@@ -9,7 +9,7 @@ First of all, the school ID should be obtained from the schools' eKérta address
 ```
 https://klikXXXXXXXXX.e-kreta.hu/Adminisztracio/Login
 ```
-Where the first portion of the address (klikXXXXXXXXX) is what we need for fursther requests.
+Where the first portion of the address (klikXXXXXXXXX) is what we need for further requests.
 
 ## Logging in (getting auth cookie)
 #### Config for the "client":
@@ -28,6 +28,8 @@ HttpResponseMessage response = client.PostAsync("https://klikXXXXXXXX.e-kreta.hu
 contents = await response.Content.ReadAsStringAsync();
 ```
 * This is necessary to obtain an auth cookie.
+
+#### Server response
 ```json
 {"ErrorCode":"Ok","ErrorMessage":"Sikeres bejelentkezés.","Success":true,"WarningMessage":""}
 ```
@@ -42,7 +44,7 @@ foreach (Cookie cookie in responseCookies)
   cookie_to_use += (cookie.Name + ": " + cookie.Value);
 }
 ```
-* Alternatively it can be parsed out directly of "response" (in the Credential check part), but this is easier.
+* Alternatively it can be parsed manually out of "response" (in the credential check part), but this is easier.
 
 ## Main page auth
 ```C#
@@ -56,8 +58,8 @@ foreach (Cookie cookie in responseCookies)
 }
 ```
 * Add the cookie to the request header to prove auth.
-* For whatever reason, the auth cookie received at the start will not work for any other pages except this. or at least I couldn't make the thing accept it anywhere else. I think it is because the WebAPI refreshes the auth cookie at every new page loaded, unlike the mobile version which refreshes it at set intervalls (30 seconds).
-* Note: i actually have no clue what "SzerepkorValaszto" does, so I assume it just exists. It's better for everyone if you do too.
+* For whatever reason, the auth cookie received at the start will not work for any other pages except this. Or at least I couldn't make the thing accept it anywhere else. I think it is because the WebAPI refreshes the auth cookie at every new page loaded, unlike the mobile version which refreshes it at set intervalls (30 seconds).
+* Note: I actually have no clue what "SzerepkorValaszto" does, so I assume it just exists. It's better for everyone if you do too.
 
 ## Getting the timetable
 ```C#
@@ -69,7 +71,7 @@ response = client1.GetAsync(URL + dateStart + dateEnd).Result;
 contents = await response.Content.ReadAsStringAsync();
 ```
 * In this instance, the response will contain lessons for only the current day.
-* dateEnd is parsed to int with a +1 at the end because of the way eKréta handles days. Lessons from December 14th to December 14th are nonexistent, because the day starts at 00:00am and ends at 00:01am. (Lovely)
+* dateEnd is parsed to int with a +1 at the end because of the way eKréta handles days. For example, lessons from December 14th to December 14th are nonexistent, because the day starts at 00:00am and ends at 00:01am. (Lovely)
 
 #### Server response:
 ```json
