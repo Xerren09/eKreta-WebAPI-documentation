@@ -62,7 +62,7 @@ foreach (Cookie cookie in responseCookies)
 ## Getting the timetable
 ```C#
 client.DefaultRequestHeaders.Add("Cookie", cookie_to_use);
-string URL = ("https://klikXXXXXXXXX.e-kreta.hu/api/CalendarApi/GetTanuloOrarend?tanarId=-1&osztalyCsoportId=-1&tanuloId=-1&teremId=-1&kellCsengetesiRendMegjelenites=false&csakOrarendiOra=false&kellTanoranKivuliFoglalkozasok=false&kellTevekenysegek=false&kellTanevRendje=true&szuresTanevRendjeAlapjan=false")
+string URL = ("https://klikXXXXXXXXX.e-kreta.hu/api/CalendarApi/GetTanuloOrarend?tanarId=-1&osztalyCsoportId=-1&tanuloId=-1&teremId=-1&kellCsengetesiRendMegjelenites=false&csakOrarendiOra=false&kellTanoranKivuliFoglalkozasok=false&kellTevekenysegek=false&kellTanevRendje=true&szuresTanevRendjeAlapjan=false");
 string dateStart = ("&start=" + DateTime.Now.ToString("yyyy").ToString() + "-" + DateTime.Now.ToString("MM").ToString() + "-" + DateTime.Now.ToString("dd").ToString());
 string dateEnd = ("&end=" + DateTime.Now.ToString("yyyy").ToString() + "-" + DateTime.Now.ToString("MM").ToString() + "-" + (Int32.Parse(DateTime.Now.ToString("dd").ToString())+1).ToString());
 response = client1.GetAsync(URL + dateStart + dateEnd).Result;
@@ -114,7 +114,7 @@ contents = await response.Content.ReadAsStringAsync();
 * The actual response is not as neatly formatted as it is here. I am sorry.
 
 #### Parsing tips:
-* don't use char count as landmarks. Because it is a json, it's the safest to use char: " as a good landmark for parsing.
+* Don't use char counts as landmarks. As the response is a json, it's the safest to use char " as a good landmark for parsing.
 Example for a simple parser, written to get the first class' starting time (starts after the 65th " char):
 ```C#
 firstclasstart = "";
