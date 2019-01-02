@@ -117,12 +117,12 @@ contents = await response.Content.ReadAsStringAsync();
 
 #### Parsing tips:
 * Don't use char counts as landmarks. As the response is a json, it's the safest to use char " as a good landmark for parsing.
-Example for a simple parser, written to get the first class' starting time (starts after the 65th " char):
+Example for a simple parser, written to get the first class' starting time (starts after the 67th " char):
 ```C#
 firstclasstart = "";
 for (int i = 0; i <= contents.Length; i++)
 {              
-  if (i2 == 65)
+  if (i2 == 67)
   {
     firstclasstart += contents[i];
     if (contents[i + 1] == '"')
