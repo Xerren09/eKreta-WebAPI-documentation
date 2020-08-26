@@ -2,7 +2,7 @@
 
 The information present in this documentation was aquired by inspecting webpage network activity using Firefox's developer tools (F12 > Network tab)
 
-**Please note that this document is likely outdated (last update: 02 Jan 2019). I no longer have access to the E-Kréta system, so I am not able to update it. For a better documentation please refer to [Boapps' own one]([Boapps' lovely doc](https://github.com/boapps/e-kreta-api-docs)).**
+**Please note that this document is likely outdated (last update: 02 Jan 2019). I no longer have access to the E-Kréta system, so I am not able to update it. For a better documentation please refer to [Boapps' own one](https://github.com/boapps/e-kreta-api-docs).**
 
 If you are looking for the MobileAPI documentation, check out [Boapps' lovely doc](https://github.com/boapps/e-kreta-api-docs) on it.
 
